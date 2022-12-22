@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
     showPopupWeb();
+    console.log("test by Quan");
 });
 
 
