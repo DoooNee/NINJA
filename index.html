@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NinJa</title>
+    <link href="/img/favicon.png" rel="shortcut icon" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+    <!-- -------------PC----------- -->
+    <div class="wrapper">
+
+        <div class="wrapper-popup-web" onclick="showPopupWeb();showPopupWebWrapper();">
+         
+        </div>
+
+        <div class="popup-web">
+           <a href="javascript:showPopupWeb();showPopupWebWrapper();"> <img class="popup-web-close" src="/img/close.png" alt=""></a>
+            <a href="#"><img src="/img/Popup_Web_Landing_900x506.jpg" alt=""></a>
+        </div>
+
+
+        
+
+        <!-- -------modal -------------- -->
+        <div class="wrapper-modal" id="myModal" onclick="javascript:showPopup();">
+
+        </div>
+        <div class="content-modal">
+            <div class="inner-content-modal">
+                <img class="close-content-modal" src="/img/close.png" alt="" onclick="javascript:showPopup();">
+                <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
+                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+            </div>
+        </div>
+
+        <!-- end modal -->
+
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="separate-page"><a href="#">FANPAGE</a> </li>|
+                <li class="separate"><a href="#">CHAT VỚI ADMIN</a> </li>|
+                <li><a href="#">NẠP THẺ</a></li>
+            </ul>
+        </div>
+        <!-- end nav -->
+
+        <!-- đăng ký ngay -->
+        <div class="btn-dangkyngay">
+            <a href=" javascript:showPopup();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
+        </div>
+        <!-- end -->
+
+        <div class="user">
+            <p>Số Nhẫn Giả Đã Đăng Ký: 9999</p>
+        </div>
+
+
+
+        <!-- download -->
+        <div class="download">
+            <div class="appstore"><a href="#"><img src="/img/btn-ios.png" alt=""></a></div>
+            <div class="gg-play"><a href="#"><img src="/img/btn-android.png" alt=""></a></div>
+            <div class="apk"><a href="#"><img src="/img/btn-apk.png" alt=""></a></div>
+        </div>
+
+        <!-- end download -->
+
+    </div>
+
+
+
+
+
+    <!-------- Mobile------------ -->
+    <div class="wrapper-mb">
+        <div class="wrapper-modal-mb">
+        </div>
+
+
+
+        <!-- btn-menu-mb -->
+        <label for="btn-menu" class="btn-menu-mb">
+            <img src="/img/btn-menu-m.png" alt="">
+        </label>
+
+        <input type="checkbox" id="btn-menu">
+
+        <div class="nav-mb">
+            <img src="/img/bg-menu-mob.png" alt="">
+            <label for="btn-menu" class="close"></label>
+            <ul class="list-nav">
+                <li><a href="#">FANPAGE</a></li>
+                <li><a href="#">CHAT VỚI ADMIN</a></li>
+                <li><a href="#">NẠP THẺ</a></li>
+            </ul>
+        </div>
+
+
+
+
+        <!-- end btn-menu-mb -->
+
+        <!-- -------modal -------------- -->
+
+        <div class="content-modal">
+            <div class="inner-content-modal">
+                <img class="close-content-modal" src="/img/close.png" alt="" onclick="javascript:showPopup();">
+                <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
+                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+            </div>
+        </div>
+
+        <!-- ------- end modal -------------- -->
+
+
+        <!-- đăng ký ngay -->
+        <div class="btn-dangkyngay-mb">
+            <div class="user-mb">Số Nhẫn Giả Đăng ký: 9999</div>
+            <a href=" javascript:showPopup();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
+        </div>
+        <!-- end đăng ký ngay -->
+
+
+        <!-- download -->
+        <div class="download-mb">
+            <div class="appstore-mb"><a href="#"><img src="/img/btn-ios.png" alt=""></a></div>
+            <div class="gg-play-mb"><a href="#"><img src="/img/btn-android.png" alt=""></a></div>
+            <div class="apk-mb"><a href="#"><img src="/img/btn-apk.png" alt=""></a></div>
+        </div>
+
+        <!-- end download -->
+
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
