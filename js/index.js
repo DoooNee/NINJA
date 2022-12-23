@@ -1,6 +1,6 @@
 // show popup web
 
-$(document).ready(function() {
+$(document).ready(function () {
     showPopupWeb();
 
 });
@@ -70,10 +70,6 @@ function showPopupWebWrapper() {
     // $(".wrapper-popup-web").toggle("slow");
 }
 
-function showPopupMb() {
-
-    // $(".wrapper-popup-web").toggle("slow");
-}
 
 
 
