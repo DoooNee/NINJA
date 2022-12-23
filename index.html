@@ -12,11 +12,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
 </head>
 
 <body>
+
     <!-- -------------PC----------- -->
     <div class="wrapper">
 
@@ -28,33 +29,6 @@
             <a href="javascript:showPopupWeb();showPopupWebWrapper();"> <img class="popup-web-close"
                     src="/img/close.png" alt=""></a>
         </div>
-
-
-
-
-        <!-- -------modal -------------- -->
-        <div class="wrapper-modal" id="myModal" onclick="javascript:showPopup();">
-
-        </div>
-        <div class="content-modal">
-            <div class="inner-content-modal">
-                <img class="close-content-modal" src="/img/close.png" alt="" onclick="javascript:showPopup();">
-                <!-- <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
-                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a> -->
-
-                <!--  -->
-                  <form action="" method="POST" id="promise_form" onsubmit=""return;>
-                    <div class="form-group">
-                        <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email1" required>
-                    </div>
-                    <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
-                </form>"
-
-            </div>
-        </div>
-
-        <!-- end modal -->
-
         <div class="nav">
             <ul class="nav-list">
                 <li class="separate-page"><a href="#">FANPAGE</a> </li>|
@@ -74,18 +48,16 @@
             <p>Số Nhẫn Giả Đã Đăng Ký: 9999</p>
         </div>
 
-
-
         <!-- download -->
         <div class="download">
             <div class="appstore"><a href="#"><img src="/img/btn-ios.png" alt=""></a></div>
             <div class="gg-play"><a href="#"><img src="/img/btn-android.png" alt=""></a></div>
             <div class="apk"><a href="#"><img src="/img/btn-apk.png" alt=""></a></div>
         </div>
-
         <!-- end download -->
-
     </div>
+
+
 
 
 
@@ -133,23 +105,6 @@
         <!-- -------modal -------------- -->
         <div class="wrapper-modal-mb" onclick="showPopup()">
         </div>
-        <div class="content-modal ">
-            <div class="inner-content-modal ">
-                <img class="close-content-modal" src="/img/close.png" alt=""
-                    onclick="javascript:showPopup();showPopupMb()">
-                <!-- <input class="input-content-modal" id="email" type="text" placeholder="Nhập Email ngay ...">
-                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a> -->
-                <form action="" method="POST" id="promise_form" onsubmit=""return;>
-                    <div class="form-group">
-                        <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email" required>
-                    </div>
-                    <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
-                </form>"
-            </div>
-        </div>
-
-        <!-- ------- end modal -------------- -->
-
 
         <!-- đăng ký ngay -->
         <div class="btn-dangkyngay-mb">
@@ -169,7 +124,29 @@
         <!-- end download -->
 
     </div>
-    <script src="./js/index.js"></script>
+
+
+       <!-- -------modal -------------- -->
+       <div class="wrapper-modal" id="myModal" onclick="showPopup();">
+
+       </div>
+       <div class="content-modal">
+           <div class="inner-content-modal">
+               <img class="close-content-modal" src="/img/close.png" alt="" onclick="showPopup();">
+               <form action="" method="POST" id="promise_form" onsubmit="" return;>
+                   <div class="form-group">
+                       <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email"
+                           required>
+                   </div>
+                   <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png"
+                           alt=""></a>
+               </form>"
+   
+           </div>
+       </div>
+   
+       <!-- end modal -->
+    <script src="/js/index.js"></script>
 </body>
 
 </html>

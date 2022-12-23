@@ -53,7 +53,7 @@ if (phoneWidth < 768) {
 function showPopup() {
     $(".content-modal").toggle("slow");
     $("#myModal").toggle();
-    $(".wrapper-modal-mb").toggle("");
+    // $(".wrapper-modal-mb").toggle("");
 
 
 
