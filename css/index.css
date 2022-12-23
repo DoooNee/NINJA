@@ -31,7 +31,7 @@ a {
 /* ---------nav--------------- */
 .wrapper {
     position: relative;
-    height: 110vh;
+    height: 60vw;
     width: 100%;
     background-image: url(../img/bg-pc2.jpg);
     background-repeat: no-repeat;
@@ -123,26 +123,47 @@ a {
 /* popup web */
 
 
-.wrapper-popup-web{
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    background-color:rgba(0,0,0,0.4);
-    z-index: 1;
+.wrapper-popup-web {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 6;
+}
+
+.wrapper-popup-web:hover {
+    cursor: pointer;
 }
 
 .popup-web {
+    background-image: url(../img/Popup_Web_Landing_900x506.jpg);
     position: fixed;
-    top: 15%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
     display: none;
+    height: 57%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 6;
+}
+
+.popup-web img {
+    float: right;
+    filter: brightness(50%);
+
 
 }
 
-.popup-web img{
-    float: right;
-    
+.popup-web img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+    filter: brightness(80%);
 }
 
 
@@ -323,7 +344,24 @@ a {
 @media only screen and (max-width: 767px) {
     .wrapper-mb {
         display: block;
+        background-color: #114552;
     }
+
+    .wrapper-modal-mb {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1;
+    }
+
+    .popup-web{
+        height:22%;
+    }
+
 
     .nav-mb {
         display: block;
@@ -335,12 +373,16 @@ a {
 
     .wrapper-mb {
         background-image: url(/img/bg-m.jpg);
-        height: 1300px;
+        min-height: 100vh;
         /* height: auto; */
         background-repeat: no-repeat;
         background-size: 100%;
 
 
+    }
+
+    .popup-web {
+        top: 25%;
     }
 
 
@@ -501,6 +543,7 @@ a {
         background-repeat: no-repeat;
         background-size: cover;
 
+
     }
 
     .btn-dangkyngay {
@@ -554,6 +597,11 @@ a {
 
     .nav-mb {
         display: none;
+    }
+
+    .popup-web {
+        top: 30%;
+        height: 27%;
     }
 
 

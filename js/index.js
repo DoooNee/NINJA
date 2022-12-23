@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     showPopupWeb();
-    console.log("test by Quan");
+
 });
 
 
@@ -53,6 +53,9 @@ if (phoneWidth < 768) {
 function showPopup() {
     $(".content-modal").toggle("slow");
     $("#myModal").toggle();
+    $(".wrapper-modal-mb").toggle("");
+
+
 
 }
 
@@ -64,6 +67,11 @@ function showPopupWeb() {
 
 function showPopupWebWrapper() {
     $(".wrapper-popup-web").toggle("");
+    // $(".wrapper-popup-web").toggle("slow");
+}
+
+function showPopupMb() {
+
     // $(".wrapper-popup-web").toggle("slow");
 }
 
