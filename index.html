@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NINJA | GAME NHẬP VAI | NHẪN GIẢ KINH ĐIỂN </title>
+    <title>NINJA | GAME NHẬP VAI NHẪN GIẢ KINH ĐIỂN </title>
     <link href="/img/favicon.png" rel="shortcut icon" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./css/index.css">
 
 </head>
@@ -38,8 +39,17 @@
         <div class="content-modal">
             <div class="inner-content-modal">
                 <img class="close-content-modal" src="/img/close.png" alt="" onclick="javascript:showPopup();">
-                <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
-                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+                <!-- <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
+                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a> -->
+
+                <!--  -->
+                  <form action="" method="POST" id="promise_form" onsubmit=""return;>
+                    <div class="form-group">
+                        <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email1" required>
+                    </div>
+                    <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+                </form>"
+
             </div>
         </div>
 
@@ -127,8 +137,14 @@
             <div class="inner-content-modal ">
                 <img class="close-content-modal" src="/img/close.png" alt=""
                     onclick="javascript:showPopup();showPopupMb()">
-                <input class="input-content-modal" type="text" placeholder="Nhập Email ngay ...">
-                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+                <!-- <input class="input-content-modal" id="email" type="text" placeholder="Nhập Email ngay ...">
+                <a href="#"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a> -->
+                <form action="" method="POST" id="promise_form" onsubmit=""return;>
+                    <div class="form-group">
+                        <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email" required>
+                    </div>
+                    <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png" alt=""></a>
+                </form>"
             </div>
         </div>
 
