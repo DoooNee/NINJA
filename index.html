@@ -44,8 +44,8 @@
         </div>
         <!-- end -->
 
-        <div class="user">
-            <p>Số Nhẫn Giả Đã Đăng Ký: 9999</p>
+        <div class="user ">
+            <p class="soUserDangKy">Số Nhẫn Giả Đã Đăng Ký: 9999</p>
         </div>
 
         <!-- download -->
@@ -55,6 +55,18 @@
             <div class="apk"><a href="#"><img src="/img/btn-apk.png" alt=""></a></div>
         </div>
         <!-- end download -->
+
+        <form method="POST" id="promise_form" onsubmit="return;">
+                                    
+            <div class="form-group" style="margin-bottom:10px;">
+                <div class="row">
+                    <div class="col-md-12"><input required="" class="form-control" type="email" id="email" name="email" placeholder="Nhập email của bạn ..."></div>
+                </div>
+            </div>
+
+        
+            <input type="submit" class="submit_promise" name="button" value="submit" onclick="insert1()"> 
+        </form>
     </div>
 
 
@@ -108,7 +120,7 @@
 
         <!-- đăng ký ngay -->
         <div class="btn-dangkyngay-mb">
-            <div class="user-mb">Số Nhẫn Giả Đăng ký: 9999</div>
+            <div class="user-mb soUserDangKy">Số Nhẫn Giả Đăng ký: 9999</div>
             <a href=" javascript:showPopup();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
         </div>
         <!-- end đăng ký ngay -->

@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     showPopupWeb();
+    getData();
 
 });
 
@@ -97,17 +98,105 @@ function insert(){
             // console.log(res.status);
 
             if(res == "failed"){
-                show_result({"title":"Thông báo !","msg":`Email đã tồn tại`,"redirect":"/"});
+                show_result({"title":"Thông báo !","msg":'Email đã tồn tại',"redirect":"/"});
 
             }
             else {
-                show_result({"title":"Thông báo !","msg":`Đăng ký email thành công !`,"redirect":"/"});
+                show_result({"title":"Thông báo !","msg":'Đăng ký email thành công !',"redirect":"/"});
+                getData();
             }
         }
 
     })
 
 }
+
+
+
+//
+function getData(){
+    $.ajax({
+        url: 'backend/getData.php',
+        type: 'get',
+        data: '',
+        beforeSend:function(){
+          
+        },
+        success: function(res){
+            // console.log(res);
+            $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
+        },
+        complete: function(){
+        }
+    });
+}
+
+
+function testapi(){
+    $.ajax({
+        url: 'https://63a90855100b7737b988ad56.mockapi.io/bxh/top10',
+        type: 'POST',
+        data:{
+            id: 1,
+            
+        },
+        beforeSend:function(){
+          
+        },
+        success: function(res){
+            console.log(res);
+            // console.log(res.username);
+            // $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
+            
+            
+            $.each(res, function(key, value){
+                // console.log(key);
+                console.log(value.KNB);
+
+
+            });
+        },
+        complete: function(){
+        }
+    });
+}
+
+
+
+
+
+
+function insert1(){
+        $.ajax({
+            url: 'https://thienha3q.vn/db/function.php',
+            type: "POST",
+            data:{
+                email: $("input[name=email]").val(),
+                action: "insert"
+            },
+            success: function(res){
+
+                console.log(res);
+            }
+
+        })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -166,7 +255,6 @@ function show_result(response, callback){
     },200);
 
 }
-
 
 
 
