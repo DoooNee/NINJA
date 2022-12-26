@@ -4,13 +4,6 @@ $conn = mysqli_connect("localhost", "root", "", "ninja_db");
 if($_POST["action"] == "insert"){
     insert();
 }
-function insert1(){
-    global $conn;
-    $email = $_POST["email"];
-    echo $email;
-}
-
-
 
 function insert (){
     global $conn;
@@ -54,12 +47,25 @@ function insert (){
             "status" => "success",
             "msg" => "Đăng ký mail thành công"
         ];
-        // echo json_encode($res);
-        echo "success";
+
+        $query = "SELECT * FROM dangkytruoc WHERE id = 1"; 
+        $result = mysqli_query($conn, $query);
+        $sodangkytruoc = array();
+        while($row = mysqli_fetch_array($result, 1)){
+            $sodangkytruoc[] = $row;
+        }
+        $sodangkyold = $sodangkytruoc[0]['dangkytruoc'];
+        $sodangkynew = $sodangkyold + 1;
+        $query = "UPDATE dangkytruoc
+                    SET dangkytruoc = $sodangkynew
+                    WHERE id = 1";
+        mysqli_query($conn, $query);
+        echo is_int('success');
         exit;
     }
 // 
 }
+
 
 
 
