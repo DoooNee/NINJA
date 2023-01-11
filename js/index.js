@@ -12,13 +12,13 @@ $(document).ready(function () {
 // ---------nhận diện thiết bị
 var userAgent = navigator.userAgent.toLowerCase();
 if (userAgent.search("iphone") > -1) {
-//   <!--  document.querySelector(".apk-mb").style.display = 'none'; -->
+    //   <!--  document.querySelector(".apk-mb").style.display = 'none'; -->
     document.querySelector(".apk-full").style.display = 'none';
     document.querySelector(".apk-mini").style.display = 'none';
 
 } else if (userAgent.search("android") > -1) {
     document.querySelector(".appstore-mb").style.display = 'none';
-} 
+}
 //else if (userAgent.search("ipad") > -1) {
 //    document.querySelector(".apk").style.display = 'none';
 //    document.querySelector(".gg-play").style.display = 'none';
@@ -104,70 +104,22 @@ function insert() {
 
             }
 
-            else if(res == "err") {
-                show_result({"title":"Thông báo !","msg":'Vui lòng nhập đúng định dạng email !',"redirect":"/"});
-            
+            else if (res == "err") {
+                show_result({ "title": "Thông báo !", "msg": 'Vui lòng nhập đúng định dạng email !', "redirect": "/" });
+
             }
             else {
-                show_result({"title":"Thông báo !","msg":'Đăng ký email thành công !',"redirect":"/"});
+                show_result({ "title": "Thông báo !", "msg": 'Đăng ký email thành công !', "redirect": "/" });
                 getData();
             }
-          
-          
+
+
         }
     })
 }
 
 
-//   <!-- HELP DESK -->
 
-function showHelpDesk() {
-    $(".helpdesk").slideToggle("slow");
-}
-
-
-
-function showForm() {
-    var options = $(".form-input-options").val();
-    var name = $(".form-input-name").val();
-    var email = $(".form-input-email").val();
-    var subject = $(".form-input-Subject").val();
-    var description = $(".form-input-description").val();
-
-
-    if (options == "--") {
-        swal("Chưa nhập options", "", "warning");
-        return 0;
-    }
-    if (name == "") {
-        swal("Chưa nhập name", "", "warning");
-
-        return 0;
-    }
-    if (email == "") {
-        swal("Chưa nhập email", "", "warning");
-
-        return 0;
-    }
-    if (subject == "") {
-        swal("Chưa nhập subject", "", "warning");
-
-        return 0;
-
-    }
-    if (description == "") {
-        swal("Chưa nhập description", "", "warning");
-
-        return 0;
-
-    }
-
-
-    swal("Gửi phản hồi thành công", "", "success");
-    console.log(options, name, email, subject, description);
-
-}
-// <!--END HELP DESK -->
 
 
 
@@ -191,31 +143,31 @@ function getData() {
 }
 
 
-function testapi(){
+function testapi() {
     $.ajax({
         url: 'https://63a90855100b7737b988ad56.mockapi.io/bxh/top10',
         type: 'POST',
-        data:{
+        data: {
             id: 1,
-            
+
         },
-        beforeSend:function(){
-          
+        beforeSend: function () {
+
         },
-        success: function(res){
+        success: function (res) {
             console.log(res);
             // console.log(res.username);
             // $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
-            
-            
-            $.each(res, function(key, value){
+
+
+            $.each(res, function (key, value) {
                 // console.log(key);
                 console.log(value.KNB);
 
 
             });
         },
-        complete: function(){
+        complete: function () {
         }
     });
 }
@@ -225,20 +177,20 @@ function testapi(){
 
 
 
-function insert1(){
-        $.ajax({
-            url: 'https://thienha3q.vn/db/function.php',
-            type: "POST",
-            data:{
-                email: $("input[name=email]").val(),
-                action: "insert"
-            },
-            success: function(res){
+function insert1() {
+    $.ajax({
+        url: 'https://thienha3q.vn/db/function.php',
+        type: "POST",
+        data: {
+            email: $("input[name=email]").val(),
+            action: "insert"
+        },
+        success: function (res) {
 
-                console.log(res);
-            }
+            console.log(res);
+        }
 
-        })
+    })
 }
 
 
@@ -322,6 +274,59 @@ function getUser() {
     });
 }
 
+
+
+
+
+//   <!-- HELP DESK -->
+
+function showHelpDesk() {
+    $(".helpdesk").slideToggle("slow");
+}
+
+
+
+function showForm() {
+    var options = $(".form-input-options").val();
+    var name = $(".form-input-name").val();
+    var email = $(".form-input-email").val();
+    var subject = $(".form-input-Subject").val();
+    var description = $(".form-input-description").val();
+
+
+    if (options == "--") {
+        swal("Chưa nhập options", "", "warning");
+        return 0;
+    }
+    if (name == "") {
+        swal("Chưa nhập name", "", "warning");
+
+        return 0;
+    }
+    if (email == "") {
+        swal("Chưa nhập email", "", "warning");
+
+        return 0;
+    }
+    if (subject == "") {
+        swal("Chưa nhập subject", "", "warning");
+
+        return 0;
+
+    }
+    if (description == "") {
+        swal("Chưa nhập description", "", "warning");
+
+        return 0;
+
+    }
+
+
+    swal("Gửi phản hồi thành công", "", "success");
+    console.log(options, name, email, subject, description);
+
+}
+// <!--END HELP DESK -->
 
 
 
