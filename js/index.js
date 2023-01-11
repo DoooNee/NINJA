@@ -3,6 +3,7 @@
 $(document).ready(function () {
     showPopupWeb();
     getData();
+    getUser();
 
 });
 
@@ -11,15 +12,17 @@ $(document).ready(function () {
 // ---------nhận diện thiết bị
 var userAgent = navigator.userAgent.toLowerCase();
 if (userAgent.search("iphone") > -1) {
-    document.querySelector(".apk-mb").style.display = 'none';
-    document.querySelector(".gg-play-mb").style.display = 'none';
+    //   <!--  document.querySelector(".apk-mb").style.display = 'none'; -->
+    document.querySelector(".apk-full").style.display = 'none';
+    document.querySelector(".apk-mini").style.display = 'none';
 
 } else if (userAgent.search("android") > -1) {
     document.querySelector(".appstore-mb").style.display = 'none';
-} else if (userAgent.search("ipad") > -1) {
-    document.querySelector(".apk").style.display = 'none';
-    document.querySelector(".gg-play").style.display = 'none';
 }
+//else if (userAgent.search("ipad") > -1) {
+//    document.querySelector(".apk").style.display = 'none';
+//    document.querySelector(".gg-play").style.display = 'none';
+//}
 
 
 
@@ -75,88 +78,96 @@ function showPopupWebWrapper() {
 
 // submit form
 var form = document.getElementById("promise_form");
-function handleForm (event) {event.preventDefault();}
+function handleForm(event) { event.preventDefault(); }
 form.addEventListener('submit', handleForm);
 
 
-function insert(){
+function insert() {
     var email = $("input[name=email]").val();
 
-    if( email == '' ){show_result({ title: "Thông báo !", msg: 'Vui lòng nhập email !' });return false;}
-
+    if (email == '') { show_result({ title: "Thông báo !", msg: 'Vui lòng nhập email !' }); return false; }
 
     $.ajax({
         url: 'backend/function.php',
         type: "POST",
-        data:{
+        data: {
             email: email,
             action: "insert"
         },
-        success: function(res){
+        success: function (res) {
             // console.log(res);
             // console.log(res.msg);
             // console.log(res.status);
 
-            if(res == "failed"){
-                show_result({"title":"Thông báo !","msg":'Email đã tồn tại',"redirect":"/"});
+            if (res == "failed") {
+                show_result({ "title": "Thông báo !", "msg": 'Email đã tồn tại', "redirect": "/" });
+
+            }
+
+            else if (res == "err") {
+                show_result({ "title": "Thông báo !", "msg": 'Vui lòng nhập đúng định dạng email !', "redirect": "/" });
 
             }
             else {
-                show_result({"title":"Thông báo !","msg":'Đăng ký email thành công !',"redirect":"/"});
+                show_result({ "title": "Thông báo !", "msg": 'Đăng ký email thành công !', "redirect": "/" });
                 getData();
             }
+
+
         }
-
     })
-
 }
 
 
 
+
+
+
+
 //
-function getData(){
+function getData() {
     $.ajax({
         url: 'backend/getData.php',
         type: 'get',
         data: '',
-        beforeSend:function(){
-          
+        beforeSend: function () {
+
         },
-        success: function(res){
+        success: function (res) {
             // console.log(res);
             $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
         },
-        complete: function(){
+        complete: function () {
         }
     });
 }
 
 
-function testapi(){
+function testapi() {
     $.ajax({
         url: 'https://63a90855100b7737b988ad56.mockapi.io/bxh/top10',
         type: 'POST',
-        data:{
+        data: {
             id: 1,
-            
+
         },
-        beforeSend:function(){
-          
+        beforeSend: function () {
+
         },
-        success: function(res){
+        success: function (res) {
             console.log(res);
             // console.log(res.username);
             // $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
-            
-            
-            $.each(res, function(key, value){
+
+
+            $.each(res, function (key, value) {
                 // console.log(key);
                 console.log(value.KNB);
 
 
             });
         },
-        complete: function(){
+        complete: function () {
         }
     });
 }
@@ -166,20 +177,20 @@ function testapi(){
 
 
 
-function insert1(){
-        $.ajax({
-            url: 'https://thienha3q.vn/db/function.php',
-            type: "POST",
-            data:{
-                email: $("input[name=email]").val(),
-                action: "insert"
-            },
-            success: function(res){
+function insert1() {
+    $.ajax({
+        url: 'https://thienha3q.vn/db/function.php',
+        type: "POST",
+        data: {
+            email: $("input[name=email]").val(),
+            action: "insert"
+        },
+        success: function (res) {
 
-                console.log(res);
-            }
+            console.log(res);
+        }
 
-        })
+    })
 }
 
 
@@ -201,30 +212,29 @@ function insert1(){
 
 
 //function Hien thi thong bao
-function show_result(response, callback){
+function show_result(response, callback) {
     var title_choose, title_arr;
-    title_arr = ['Lỗi !', 'Chúc mừng !','Thông báo', 'Thông báo !'];
+    title_arr = ['Lỗi !', 'Chúc mừng !', 'Thông báo', 'Thông báo !'];
 
-    title_choose = ( typeof response.title == "undefined" ? title_arr[response.status] : response.title );
-    let className='',text='Ok',btn_ok_visible=true;
+    title_choose = (typeof response.title == "undefined" ? title_arr[response.status] : response.title);
+    let className = '', text = 'Ok', btn_ok_visible = true;
 
-    if(response.status==1){
+    if (response.status == 1) {
         // className='vq_notice';
         // title_choose='';
-    }else{
-         text='Ok';
-         btn_ok_visible=true; 
+    } else {
+        text = 'Ok';
+        btn_ok_visible = true;
     }
-
-    setTimeout(function(){
+    setTimeout(function () {
         var div = document.createElement("div");
         div.innerHTML = response.msg + "<a href='javascript:;' onclick='close_swal()' class=' close_popup'></a>";
         swal({
             title: title_choose,
-            content:div,
+            content: div,
             className: className,
-            buttons:{
-                confirm:{
+            buttons: {
+                confirm: {
                     text: text,//Đăng nhập
                     value: "confirm",
                     visible: btn_ok_visible,
@@ -233,13 +243,13 @@ function show_result(response, callback){
                 }
             }
         }).then((willDelete) => {
-            if( typeof response.reload != 'undefined' ){
+            if (typeof response.reload != 'undefined') {
                 //Lam moi lại trang
                 console.log("ok reload");
                 location.reload();
             }
-            
-            if( typeof response.redirect !== 'undefined' ){
+
+            if (typeof response.redirect !== 'undefined') {
                 //Chuyen huong trang
                 console.log("ok redirect");
                 window.location.href = response.redirect;
@@ -252,9 +262,71 @@ function show_result(response, callback){
                 return;
             }
         });
-    },200);
+    }, 200);
+}
+
+
+function getUser() {
+    var div = $(".soUserDangKy");
+    $.get("https://gameninjaorigin.com/backend/getData.php", function (data) {
+        console.log(data);
+        div.append(data);
+    });
+}
+
+
+
+
+
+//   <!-- HELP DESK -->
+
+function showHelpDesk() {
+    $(".helpdesk").slideToggle("slow");
+}
+
+
+
+function showForm() {
+    var options = $(".form-input-options").val();
+    var name = $(".form-input-name").val();
+    var email = $(".form-input-email").val();
+    var subject = $(".form-input-Subject").val();
+    var description = $(".form-input-description").val();
+
+
+    if (options == "--") {
+        swal("Chưa nhập options", "", "warning");
+        return 0;
+    }
+    if (name == "") {
+        swal("Chưa nhập name", "", "warning");
+
+        return 0;
+    }
+    if (email == "") {
+        swal("Chưa nhập email", "", "warning");
+
+        return 0;
+    }
+    if (subject == "") {
+        swal("Chưa nhập subject", "", "warning");
+
+        return 0;
+
+    }
+    if (description == "") {
+        swal("Chưa nhập description", "", "warning");
+
+        return 0;
+
+    }
+
+
+    swal("Gửi phản hồi thành công", "", "success");
+    console.log(options, name, email, subject, description);
 
 }
+// <!--END HELP DESK -->
 
 
 
