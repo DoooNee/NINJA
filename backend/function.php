@@ -5,9 +5,7 @@ if ($_POST["action"] == "insert") {
     insert();
 }
 
-if($_POST["action"] == "feedback"){
-    feedback();
-}
+
 
 function insert()
 {

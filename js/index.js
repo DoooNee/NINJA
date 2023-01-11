@@ -103,15 +103,17 @@ function insert() {
                 show_result({ "title": "Thông báo !", "msg": 'Email đã tồn tại', "redirect": "/" });
 
             }
+
+            else if(res == "err") {
+                show_result({"title":"Thông báo !","msg":'Vui lòng nhập đúng định dạng email !',"redirect":"/"});
+            
+            }
             else {
                 show_result({"title":"Thông báo !","msg":'Đăng ký email thành công !',"redirect":"/"});
                 getData();
             }
           
-          else if(res == "err") {
-                show_result({"title":"Thông báo !","msg":'Vui lòng nhập đúng định dạng email !',"redirect":"/"});
-            
-            }
+          
         }
     })
 }
