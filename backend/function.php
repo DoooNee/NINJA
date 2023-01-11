@@ -1,8 +1,12 @@
 <?php 
-$conn = mysqli_connect("localhost", "root", "", "ninja_db");
+$conn = mysqli_connect("da001.vhost.vn", "gameninj_ninjaorigindb","gameninjaorigin.com", "gameninj_ninjaorigindb");
 
 if($_POST["action"] == "insert"){
     insert();
+}
+
+if($_POST["action"] == "feedback"){
+    feedback();
 }
 
 function insert (){
@@ -47,7 +51,8 @@ function insert (){
             "status" => "success",
             "msg" => "Đăng ký mail thành công"
         ];
-
+      
+      
         $query = "SELECT * FROM dangkytruoc WHERE id = 1"; 
         $result = mysqli_query($conn, $query);
         $sodangkytruoc = array();
@@ -60,13 +65,49 @@ function insert (){
                     SET dangkytruoc = $sodangkynew
                     WHERE id = 1";
         mysqli_query($conn, $query);
-        echo is_int('success');
+      
+      
+      
+        // echo json_encode($res);
+        echo "success";
         exit;
     }
-// 
+	echo "err";
+    exit;
 }
 
 
+//form feedback
+function feedback (){
+    global $conn;
+    $type = $_POST["type"];
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $subject = $_POST["subject"];
+    $description = $_POST["description"];
+
+
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $currentTime =  date('Y/m/d H:i:s');
+
+
+    // $query = "INSERT INTO feedback VALUE('','','','$email','$currentTime')";
+    //     mysqli_query($conn, $query);
+
+    $res = [
+        "type" => $type,
+        "username" => $username,
+        "email" => $email,
+        "subject" => $subject,
+        "description" => $description
+    ];
+    
+    $conn->close();
+    
+    echo json_encode($res);
+    exit;
+
+}
 
 
 ?>
