@@ -556,6 +556,28 @@ a {
         background-color: #114552;
     }
 
+    .helpdesk {
+        right: 0;
+        bottom: 10%;
+        width: 100%;
+        height: auto;
+    }
+
+    .inner {
+        width: 70%;
+        height: 745px;
+    }
+
+    .btn_message {
+        right: 0;
+        bottom: 25%;
+    }
+
+    .btn_message img {
+        width: 100px;
+        fill: #fff;
+    }
+
     .wrapper-modal-mb {
         position: fixed;
         top: 0;
