@@ -119,6 +119,58 @@ function insert() {
 }
 
 
+//   <!-- HELP DESK -->
+
+function showHelpDesk() {
+    $(".helpdesk").slideToggle("slow");
+}
+
+
+
+function showForm() {
+    var options = $(".form-input-options").val();
+    var name = $(".form-input-name").val();
+    var email = $(".form-input-email").val();
+    var subject = $(".form-input-Subject").val();
+    var description = $(".form-input-description").val();
+
+
+    if (options == "--") {
+        swal("Chưa nhập options", "", "warning");
+        return 0;
+    }
+    if (name == "") {
+        swal("Chưa nhập name", "", "warning");
+
+        return 0;
+    }
+    if (email == "") {
+        swal("Chưa nhập email", "", "warning");
+
+        return 0;
+    }
+    if (subject == "") {
+        swal("Chưa nhập subject", "", "warning");
+
+        return 0;
+
+    }
+    if (description == "") {
+        swal("Chưa nhập description", "", "warning");
+
+        return 0;
+
+    }
+
+
+    swal("Gửi phản hồi thành công", "", "success");
+    console.log(options, name, email, subject, description);
+
+}
+// <!--END HELP DESK -->
+
+
+
 
 //
 function getData() {
