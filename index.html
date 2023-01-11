@@ -45,7 +45,7 @@
         <!-- end -->
 
         <div class="user ">
-            <p class="soUserDangKy">Số Nhẫn Giả Đã Đăng Ký: 9999</p>
+            <p class="soUserDangKy"></p>
         </div>
 
         <!-- download -->
@@ -56,18 +56,28 @@
         </div>
         <!-- end download -->
 
-        <form method="POST" id="promise_form" onsubmit="return;">
-                                    
-            <div class="form-group" style="margin-bottom:10px;">
-                <div class="row">
-                    <div class="col-md-12"><input required="" class="form-control" type="email" id="email" name="email" placeholder="Nhập email của bạn ..."></div>
-                </div>
-            </div>
 
-        
-            <input type="submit" class="submit_promise" name="button" value="submit" onclick="insert1()"> 
-        </form>
+
     </div>
+
+    <!-- popup-submit -->
+
+    <!-- <form method="POST" id="promise_form" onsubmit="return;">
+        <div class="form-close"><a href="javascript: showPopupSubmitForm();"><img src="/img/close.png" alt=""></a></div>
+
+        <div class="form-group" style="margin-bottom:10px;">
+            <div class="row">
+                <div class="col-md-12"><input required="" class="form-control" type="email" id="email" name="email"
+                        placeholder="Nhập email của bạn ..."></div>
+            </div>
+        </div>
+        <div class="form-submit">
+            <input type="submit" class="submit_promise" name="button" value="" onclick="insert1()">
+
+        </div>
+    </form> -->
+
+    <!-- end popup-submit -->
 
 
 
@@ -108,11 +118,10 @@
                 <li><a href="#">NẠP THẺ</a></li>
             </ul>
         </div>
-
-
-
-
         <!-- end btn-menu-mb -->
+
+
+        
 
         <!-- -------modal -------------- -->
         <div class="wrapper-modal-mb" onclick="showPopup()">
@@ -138,26 +147,26 @@
     </div>
 
 
-       <!-- -------modal -------------- -->
-       <div class="wrapper-modal" id="myModal" onclick="showPopup();">
+    <!-- -------modal -------------- -->
+    <div class="wrapper-modal" id="myModal" onclick="showPopup();">
 
-       </div>
-       <div class="content-modal">
-           <div class="inner-content-modal">
-               <img class="close-content-modal" src="/img/close.png" alt="" onclick="showPopup();">
-               <form action="" method="POST" id="promise_form" onsubmit="" return;>
-                   <div class="form-group">
-                       <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email"
-                           required>
-                   </div>
-                   <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png"
-                           alt=""></a>
-               </form>
-   
-           </div>
-       </div>
-   
-       <!-- end modal -->
+    </div>
+    <div class="content-modal">
+        <div class="inner-content-modal">
+            <img class="close-content-modal" src="/img/close.png" alt="" onclick="showPopup();">
+            <form action="" method="POST" id="promise_form" onsubmit="" return;>
+                <div class="form-group">
+                    <input class="input-content-modal" type="email" placeholder="Nhập Email ngay ..." name="email"
+                        required>
+                </div>
+                <a href="javascript:insert();"> <img class="confirm-content-modal" src="/img/btn-xacnhan.png"
+                        alt=""></a>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- end modal -->
     <script src="/js/index.js"></script>
 </body>
 

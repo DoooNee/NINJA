@@ -11,4 +11,3 @@ while($row = mysqli_fetch_array($result, 1)){
 
 echo $sodangkytruoc[0]['dangkytruoc'];
 exit;
-?>
