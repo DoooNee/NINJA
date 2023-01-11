@@ -12,15 +12,17 @@ $(document).ready(function () {
 // ---------nhận diện thiết bị
 var userAgent = navigator.userAgent.toLowerCase();
 if (userAgent.search("iphone") > -1) {
-    document.querySelector(".apk-mb").style.display = 'none';
-    document.querySelector(".gg-play-mb").style.display = 'none';
+//   <!--  document.querySelector(".apk-mb").style.display = 'none'; -->
+    document.querySelector(".apk-full").style.display = 'none';
+    document.querySelector(".apk-mini").style.display = 'none';
 
 } else if (userAgent.search("android") > -1) {
     document.querySelector(".appstore-mb").style.display = 'none';
-} else if (userAgent.search("ipad") > -1) {
-    document.querySelector(".apk").style.display = 'none';
-    document.querySelector(".gg-play").style.display = 'none';
-}
+} 
+//else if (userAgent.search("ipad") > -1) {
+//    document.querySelector(".apk").style.display = 'none';
+//    document.querySelector(".gg-play").style.display = 'none';
+//}
 
 
 
@@ -102,12 +104,20 @@ function insert() {
 
             }
             else {
-                show_result({ "title": "Thông báo !", "msg": 'Đăng ký email thành công !', "redirect": "/" });
+                show_result({"title":"Thông báo !","msg":'Đăng ký email thành công !',"redirect":"/"});
                 getData();
+            }
+          
+          else if(res == "err") {
+                show_result({"title":"Thông báo !","msg":'Vui lòng nhập đúng định dạng email !',"redirect":"/"});
+            
             }
         }
     })
 }
+
+
+
 //
 function getData() {
     $.ajax({
@@ -127,76 +137,67 @@ function getData() {
 }
 
 
-function testapi() {
+function testapi(){
     $.ajax({
         url: 'https://63a90855100b7737b988ad56.mockapi.io/bxh/top10',
         type: 'POST',
-        data: {
+        data:{
             id: 1,
-
+            
         },
-        beforeSend: function () {
-
+        beforeSend:function(){
+          
         },
-        success: function (res) {
+        success: function(res){
             console.log(res);
             // console.log(res.username);
             // $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
-
-
-            $.each(res, function (key, value) {
+            
+            
+            $.each(res, function(key, value){
                 // console.log(key);
                 console.log(value.KNB);
 
 
             });
         },
-        complete: function () {
+        complete: function(){
         }
     });
 }
 
 
-// showPopupSubmitForm
-
-function showPopupSubmitForm() {
-    $("#promise_form").toggle("slow");
-}
 
 
 
 
+function insert1(){
+        $.ajax({
+            url: 'https://thienha3q.vn/db/function.php',
+            type: "POST",
+            data:{
+                email: $("input[name=email]").val(),
+                action: "insert"
+            },
+            success: function(res){
 
-
-function insert1() {
-    var email = $('input[name=email]').val();
-
-    if (email == '') {
-        show_result({ title: "Thông báo !", msg: 'Vui lòng nhập email !' });
-    }
-
-    $.ajax({
-        url: 'https://thienha3q.vn/db/function.php',
-        type: "POST",
-        data: {
-            email: $("input[name=email]").val(),
-            action: "insert"
-        },
-        success: function (res) {
-            if (res == 1) {
-                show_result({ title: "Thông báo !", msg: 'Vui lòng nhập email !' });
-            } else if (res == 2) {
-                show_result({ title: "Thông báo !", msg: 'Nhập email thành công', reload: "" });
-            } else if (res == 3) {
-                show_result({ title: "Thông báo !", msg: 'Vui lòng nhập đúng định đạng email', });
-
+                console.log(res);
             }
 
-
-        }
-
-    })
+        })
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -266,6 +267,7 @@ function getUser() {
         div.append(data);
     });
 }
+
 
 
 
