@@ -15,10 +15,11 @@ if (userAgent.search("iphone") > -1) {
 
 } else if (userAgent.search("android") > -1) {
     document.querySelector(".appstore-mb").style.display = 'none';
-} else if (userAgent.search("ipad") > -1) {
-    document.querySelector(".apk").style.display = 'none';
-    document.querySelector(".gg-play").style.display = 'none';
-}
+} 
+// else if (userAgent.search("ipad") > -1) {
+//     document.querySelector(".apk").style.display = 'none';
+//     document.querySelector(".gg-play").style.display = 'none';
+// }
 
 
 
