@@ -43,7 +43,7 @@
 
         <!-- đăng ký ngay -->
         <div class="btn-dangkyngay">
-            <a href=" javascript:showPopup();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
+            <a href=" javascript:showPopuppppp();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
         </div>
         <!-- end -->
 
@@ -57,7 +57,7 @@
             <div class="gg-play"><a href="#"><img src="/img/btn-android.png" alt=""></a></div>
             <div class="apk"><a href="#"><img src="/img/btn-apk.png" alt=""></a></div>
           -->
-          <div class="taigame" style="text-alight:center;"><a
+          <div class="taigame" ><a
             href="https://ninja.vngates.com/download/NinjaOrigin.exe"><img src="/img/btn-taigame.png"
                 alt=""></a></div>
         </div>
@@ -118,7 +118,7 @@
         <!-- đăng ký ngay -->
         <div class="btn-dangkyngay-mb">
             <div class="user-mb soUserDangKy">Số Nhẫn Giả Đăng ký: 790</div>
-            <a href=" javascript:showPopup();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
+            <a href=" javascript:showPopuppppp();" rel=""><img src="/img/btn-dangkyngay.png" alt=""></a>
         </div>
         <!-- end đăng ký ngay -->
 
@@ -175,7 +175,7 @@
         <div class="inner">
 
             <div class="form">
-                <p style="color:#465a6d;font-size:22px;font-weight: bold;margin-bottom: 20px;  ">Feedback</p>
+                <!-- <p style="color:#465a6d;font-size:22px;font-weight: bold;margin-bottom: 20px;  ">Feedback</p>
                 <p>Type *</p>
                 <select class="form-input form-input-options ">
                     <option>--</option>
@@ -193,7 +193,40 @@
                 <textarea class="form-input form-input-description" rows="5" cols="20"></textarea>
                 <p>File </p>
                 <input id="input-file" type="file" multiple>
-                <button onclick="showForm()" class="btn-send form-input">SEND</button>
+                <button onclick="showForm()" class="btn-send form-input">SEND</button> -->
+                <p style="color:#465a6d;font-size:22px;font-weight: bold;margin-bottom: 20px;  ">Feedback</p>
+                <form method="post" action="" enctype="multipart/form-data" id="formFeedBack">
+                    
+                        <label for="">Type * <br></label>
+                        <select class="form-input form-input-options" name=""option>
+                            <option>--</option>
+                            <option>Bug/Technical Issue</option>
+                            <option>Game knowledge</option>
+                            <option>Feedback or Suggestion</option>
+                        </select>
+
+                        <label for="">Your name * <br></label>
+                        <input id="yourname" class="form-input form-input-name" type="text" name="formName">
+
+                        <label for="">Email * <br></label>
+                        <input class="form-input form-input-email" type="email" name="formEmail">
+
+                        <label for="">Subject *<br></label>
+                        <input class="form-input form-input-Subject" type="text" name="formSubject">
+
+                        <label for="">Description *<br></label>
+                        <textarea class="form-input form-input-description" rows="5" cols="20" name="formDes"></textarea>
+
+                        <label for="">File ảnh (jpg, jpeg, png)<br></label>
+                        <input id="file" type="file" name="formFile">
+
+                        <!-- <input type="file" id="file" name="file" multiple> -->
+                        <input type="button" class="button" value="SEND" id="but_upload" onclick="submitForm();">
+
+                        <!-- <button onclick=""  class="btn-send form-input">SEND</button> -->
+
+                </form> 
+
             </div>
         </div>
     </div>
@@ -203,16 +236,9 @@
 
 
     <script src="/js/index.js"></script>
+    <!-- <script src="/js/submit_form.js"></script> -->
+
 </body>
 
 </html>
 
-<!-- <form method="post" action="" enctype="multipart/form-data" id="myform">
-    <div class='preview'>
-        <img src="" id="img" width="100" height="100">
-    </div>
-    <div >
-        <input type="file" id="file" name="file" multiple>
-        <input type="button" class="button" value="Upload" id="but_upload">
-    </div>
-</form> -->

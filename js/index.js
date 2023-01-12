@@ -1,9 +1,12 @@
-// show popup web
-
 $(document).ready(function () {
     showPopupWeb();
     getData();
-    getUser();
+    // getUser();
+
+    $('input[type="file"]').change(function(e){
+        fileName = e.target.files[0].name;
+        console.log(fileName);
+    });
 
 });
 
@@ -19,10 +22,7 @@ if (userAgent.search("iphone") > -1) {
 } else if (userAgent.search("android") > -1) {
     document.querySelector(".appstore-mb").style.display = 'none';
 }
-//else if (userAgent.search("ipad") > -1) {
-//    document.querySelector(".apk").style.display = 'none';
-//    document.querySelector(".gg-play").style.display = 'none';
-//}
+
 
 
 
@@ -57,21 +57,15 @@ if (phoneWidth < 768) {
 function showPopup() {
     $(".content-modal").toggle("slow");
     $("#myModal").toggle();
-    // $(".wrapper-modal-mb").toggle("");
-
-
-
 }
 
 //  show popup web
 function showPopupWeb() {
     $(".popup-web").toggle("slow");
-    // $(".wrapper-popup-web").toggle("slow");
 }
 
 function showPopupWebWrapper() {
     $(".wrapper-popup-web").toggle("");
-    // $(".wrapper-popup-web").toggle("slow");
 }
 
 
@@ -84,7 +78,7 @@ form.addEventListener('submit', handleForm);
 
 function insert() {
     var email = $("input[name=email]").val();
-
+    console.log(email);
     if (email == '') { show_result({ title: "Thông báo !", msg: 'Vui lòng nhập email !' }); return false; }
 
     $.ajax({
@@ -119,11 +113,6 @@ function insert() {
 }
 
 
-
-
-
-
-
 //
 function getData() {
     $.ajax({
@@ -141,73 +130,6 @@ function getData() {
         }
     });
 }
-
-
-function testapi() {
-    $.ajax({
-        url: 'https://63a90855100b7737b988ad56.mockapi.io/bxh/top10',
-        type: 'POST',
-        data: {
-            id: 1,
-
-        },
-        beforeSend: function () {
-
-        },
-        success: function (res) {
-            console.log(res);
-            // console.log(res.username);
-            // $('.soUserDangKy').html(`Số Nhẫn Giả Đã Đăng Ký: ${res}`);
-
-
-            $.each(res, function (key, value) {
-                // console.log(key);
-                console.log(value.KNB);
-
-
-            });
-        },
-        complete: function () {
-        }
-    });
-}
-
-
-
-
-
-
-function insert1() {
-    $.ajax({
-        url: 'https://thienha3q.vn/db/function.php',
-        type: "POST",
-        data: {
-            email: $("input[name=email]").val(),
-            action: "insert"
-        },
-        success: function (res) {
-
-            console.log(res);
-        }
-
-    })
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -266,15 +188,6 @@ function show_result(response, callback) {
 }
 
 
-function getUser() {
-    var div = $(".soUserDangKy");
-    $.get("https://gameninjaorigin.com/backend/getData.php", function (data) {
-        console.log(data);
-        div.append(data);
-    });
-}
-
-
 
 
 
@@ -284,48 +197,122 @@ function showHelpDesk() {
     $(".helpdesk").slideToggle("slow");
 }
 
+var options, formname, subject, email, subject, description;
+
+function submitForm(){
+    options = $(".form-input-options").val();
+    formname = $(".form-input-name").val();
+    email = $(".form-input-email").val();
+    subject = $(".form-input-Subject").val();
+    description = $(".form-input-description").val();
+    if (options == "--") {swal("Chưa nhập options", "", "warning"); return 0; }
+    if (formname == "") { swal("Chưa nhập name", "", "warning"); return 0; }
+    if (email == "") { swal("Chưa nhập email", "", "warning");  return 0; }
+    if (subject == "") { swal("Chưa nhập subject", "", "warning"); return 0;  }
+    if (description == "") { swal("Chưa nhập description", "", "warning"); return 0; }
 
 
-function showForm() {
-    var options = $(".form-input-options").val();
-    var name = $(".form-input-name").val();
-    var email = $(".form-input-email").val();
-    var subject = $(".form-input-Subject").val();
-    var description = $(".form-input-description").val();
+    var fd = new FormData();
+    var files = $('#file')[0].files;
+    if(files.length > 0 ){
+        //nếu có file
 
+        uploadtext();
+        uploadimg();
 
-    if (options == "--") {
-        swal("Chưa nhập options", "", "warning");
-        return 0;
-    }
-    if (name == "") {
-        swal("Chưa nhập name", "", "warning");
-
-        return 0;
-    }
-    if (email == "") {
-        swal("Chưa nhập email", "", "warning");
-
-        return 0;
-    }
-    if (subject == "") {
-        swal("Chưa nhập subject", "", "warning");
-
-        return 0;
-
-    }
-    if (description == "") {
-        swal("Chưa nhập description", "", "warning");
-
-        return 0;
+        show_result({title:'Thông báo', msg:'Phản hồi đã được gửi !', redirect:'/'}); return 0 ;
 
     }
 
+    else {
+        //nếu không co file
+        uploadtext();
+        show_result({title:'Thông báo', msg:'Phản hồi đã được gửi !', redirect:'/'}); return 0 ;
 
-    swal("Gửi phản hồi thành công", "", "success");
-    console.log(options, name, email, subject, description);
-
+        
+    }
 }
+
+
+var formfeedback = document.getElementById("formFeedBack");
+function handleForm(event) { event.preventDefault(); }
+formfeedback.addEventListener('submit', handleForm);
+
+
+function uploadimg(){
+    var fd = new FormData();
+    var files = $('#file')[0].files;
+
+    // Check file selected or not
+    if(files.length > 0 ){
+        fd.append('file',files[0]);
+        // console.log(fd);
+       $.ajax({
+          url: 'backend/uploadImage.php',
+          type: 'post',
+          data: fd,
+          dataType: 'JSON',
+          contentType: false,
+          processData: false,
+          success: function(response){
+            // console.log(response);
+            // console.log(response.status);
+
+            if(response.status == 'failed')
+            show_result({title:'Thông báo', msg:`${response.msg}`, redirect:'/'});
+
+          },
+       });
+    }else{
+       alert("Please select a file.");
+    }
+};
+
+function uploadtext(){
+
+    $.ajax({
+        url: 'backend/uploadtext.php',
+        type: 'post',
+       dataType: 'json',
+        data: {
+            type: options,
+            yourname: formname,
+            email: email,
+            subject, subject,
+            description, description
+        },
+        success: function(response){
+           if(response.status == 'failed')
+           show_result({title:'Thông báo', msg:`${response.msg}`, redirect:'/'});
+
+            console.log(response);
+        },
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // <!--END HELP DESK -->
 
 

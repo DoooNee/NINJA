@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("da001.vhost.vn", "gameninj_ninjaorigindb","gameninjaorigin.com", "gameninj_ninjaorigindb");
+require_once 'config.php';
 
 
 $query = "SELECT MAX(id) AS max_id FROM user_info"; 

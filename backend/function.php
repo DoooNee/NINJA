@@ -1,5 +1,6 @@
 <?php 
-$conn = mysqli_connect("localhost", "root", "", "ninja_db");
+require_once '/config.php';
+
 
 if ($_POST["action"] == "insert") {
     insert();
